@@ -5,6 +5,7 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  perspective: 1000px; /* Add perspective for 3D effects */
 
   &__text-wrapper {
     display: flex;
@@ -19,7 +20,8 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      animation: typingEffectAnimation 2.5s steps(20, end), textColorAnimation 3s infinite alternate;
+      animation: typingEffectAnimation 2.5s steps(20, end), textColorAnimation 3s infinite alternate,
+        float3D 4s infinite ease-in-out; /* Add 3D floating animation */
 
       @keyframes textColorAnimation {
         0% {
@@ -30,6 +32,15 @@
         }
         100% {
           color: var(--yellow-theme-main-color);
+        }
+      }
+
+      @keyframes float3D {
+        0%, 100% {
+          transform: translateZ(0) rotateY(0deg);
+        }
+        50% {
+          transform: translateZ(50px) rotateY(10deg); /* 3D floating effect */
         }
       }
     }
@@ -52,12 +63,13 @@
       transition: all 0.5s ease;
       position: relative;
       overflow: hidden;
+      transform-style: preserve-3d; /* Enable 3D transformations */
 
       &:hover {
         background: linear-gradient(45deg, var(--yellow-theme-main-color), #ff8c42);
         color: #000000;
         border-color: transparent;
-        transform: scale(1.05);
+        transform: scale(1.05) rotateX(10deg) rotateY(10deg); /* 3D rotation on hover */
       }
 
       &::before {
@@ -70,6 +82,7 @@
         background: linear-gradient(45deg, var(--yellow-theme-main-color), #ff8c42);
         transition: all 0.5s ease;
         z-index: -1;
+        transform: translateZ(-1px); /* Add depth to the pseudo-element */
       }
 
       &:hover::before {
