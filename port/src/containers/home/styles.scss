@@ -19,15 +19,28 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      animation: typingEffectAnimation 2.5s steps(20, end);
+      animation: typingEffectAnimation 2.5s steps(20, end), textColorAnimation 3s infinite alternate;
+
+      @keyframes textColorAnimation {
+        0% {
+          color: var(--yellow-theme-main-color);
+        }
+        50% {
+          color: #ff8c42; /* Orange color */
+        }
+        100% {
+          color: var(--yellow-theme-main-color);
+        }
+      }
     }
   }
-  &__contact-me{
+
+  &__contact-me {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 
-    button{
+    button {
       cursor: pointer;
       padding: 10px 70px;
       font-size: 2rem;
@@ -36,16 +49,35 @@
       border: 1.5px solid var(--yellow-theme-main-color);
       border-radius: 4px;
       font-weight: 500;
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
 
-      &:hover{
-        background: var(--yellow-theme-main-color);
+      &:hover {
+        background: linear-gradient(45deg, var(--yellow-theme-main-color), #ff8c42);
         color: #000000;
+        border-color: transparent;
+        transform: scale(1.05);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, var(--yellow-theme-main-color), #ff8c42);
+        transition: all 0.5s ease;
+        z-index: -1;
+      }
+
+      &:hover::before {
+        left: 0;
       }
     }
   }
 }
-
-
 
 @media only screen and (max-width: 550px) {
   .home__text-wrapper h1 {
