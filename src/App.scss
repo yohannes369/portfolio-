@@ -1,15 +1,9 @@
-.App{
-    height: 100%;
-
-    &__main-page-content{
-        height: calc(100% - 80px);
-    }
-}
 :root {
     --yellow-theme-nav-background-color: #1d1d1d;
     --yellow-theme-main-color: #ffdd40;
     --yellow-theme-sub-text-color: #ffffff;
     --yellow-theme-background-color: #1d1d1d;
+    --navbar-height: 80px; // Define navbar height as a variable
   }
   
   * {
@@ -19,7 +13,7 @@
   }
   
   html {
-    font-size: 62.5%;
+    font-size: 62.5%; // 1rem = 10px
     scroll-behavior: smooth;
   }
   
@@ -30,19 +24,21 @@
   }
   
   .App {
+    height: 100vh; // Full viewport height
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+  
+    &__main-page-content {
+      flex: 1; // Take up remaining space
+      padding: 20px;
+      height: calc(100vh - var(--navbar-height)); // Subtract navbar height
+    }
   }
   
-  .App__main-page-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
+  // Navbar Styles
   .navbar {
     background-color: var(--yellow-theme-nav-background-color);
-    height: 80px;
+    height: var(--navbar-height); // Use the defined navbar height
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +52,7 @@
       align-items: center;
       width: 100%;
       height: inherit;
-      padding: 0px 20px;
+      padding: 0 20px;
       flex: 1;
   
       &__logo {
@@ -81,7 +77,7 @@
           font-size: 1.6rem;
   
           &::after {
-            content: '';
+            content: "";
             display: block;
             height: 3px;
             width: 0;
@@ -105,39 +101,61 @@
     }
   }
   
+  // Mobile Menu Icon
   .nav-icon {
     display: none;
+    cursor: pointer;
+    color: var(--yellow-theme-main-color);
+    padding-right: 20px;
   }
   
-  @media only screen and (max-width: 768px) {
-    .navbar__container__menu {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      position: absolute;
-      top: 80px;
-      left: -110%;
-      opacity: 1;
-      transition: all 0.5s ease;
+  // Section Styling
+  .section {
+    padding: 5rem 2rem; // Add vertical and horizontal padding
+    min-height: calc(100vh - var(--navbar-height)); // Full viewport height minus navbar height
+    scroll-margin-top: var(--navbar-height); // Prevent overlap with the fixed navbar
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Subtle border for separation
   
-      &.active {
-        background: #181818;
-        left: 0px;
-        opacity: 1;
-      }
-  
-      &__item {
-        border-bottom: 1px solid #282828;
-        margin: 0px;
-        padding: 20px 0px;
-      }
+    &:last-child {
+      border-bottom: none; // Remove border for the last section
     }
+  }
   
-    .nav-icon {
-      display: block;
-      cursor: pointer;
-      color: var(--yellow-theme-main-color);
-      padding-right: 20px;
+  // Mobile Responsive Styles
+  @media only screen and (max-width: 768px) {
+    .navbar {
+      &__container {
+        &__menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          position: absolute;
+          top: var(--navbar-height); // Adjust for navbar height
+          left: -110%;
+          opacity: 1;
+          transition: all 0.5s ease;
+  
+          &.active {
+            background: #181818;
+            left: 0;
+            opacity: 1;
+          }
+  
+          &__item {
+            border-bottom: 1px solid #282828;
+            margin: 0;
+            padding: 20px 0;
+  
+            &__links {
+              color: var(--yellow-theme-main-color);
+            }
+          }
+        }
+      }
+  
+      .nav-icon {
+        display: block; // Show the mobile menu icon
+      }
     }
   }

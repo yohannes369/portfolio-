@@ -8,6 +8,7 @@ import Skills from "./containers/skills";
 import Contact from "./containers/contact";
 import Navbar from "./components/navBar";
 import particles from "./utils.js/particles";
+import "./App.scss"; // Import the SCSS file for styling
 
 function App() {
   // Initialize particles
@@ -29,122 +30,38 @@ function App() {
     }
   };
 
-  // Inline styles
-  const appStyles = {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-    overflowX: "hidden",
-    backgroundColor: "#f4f4f4",
-  };
-
-  const navbarStyles = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1000,
-    background: "#333",
-    color: "#fff",
-    padding: "1rem",
-    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-  };
-
-  const navListStyles = {
-    listStyle: "none",
-    display: "flex",
-    gap: "1rem",
-  };
-
-  const navItemStyles = {
-    cursor: "pointer",
-    transition: "color 0.3s ease",
-    "&:hover": {
-      color: "#007bff",
-    },
-  };
-
-  const mainContentStyles = {
-    marginTop: "60px", // Account for the fixed navbar height
-    paddingBottom: "20px",
-  };
-
-  const sectionStyles = {
-    boxSizing: "border-box",
-    padding: "5rem 2rem",
-    minHeight: "calc(100vh - 60px)", // Full viewport height minus navbar height
-    scrollMarginTop: "60px", // Prevent overlap with the fixed navbar
-    borderBottom: "1px solid #ddd",
-    lastChild: {
-      borderBottom: "none",
-    },
-  };
-
   return (
-    <div style={appStyles}>
+    <div className="App">
       {/* Particles background for home section */}
       <Particles id="particles" options={particles} init={handleInit} />
 
       {/* Navbar with scroll-based navigation */}
-      <nav style={navbarStyles}>
-        <ul style={navListStyles}>
-          <li
-            style={navItemStyles}
-            onClick={() => scrollToSection(homeRef)}
-          >
-            Home
-          </li>
-          <li
-            style={navItemStyles}
-            onClick={() => scrollToSection(aboutRef)}
-          >
-            About
-          </li>
-          <li
-            style={navItemStyles}
-            onClick={() => scrollToSection(resumeRef)}
-          >
-            Resume
-          </li>
-          <li
-            style={navItemStyles}
-            onClick={() => scrollToSection(skillsRef)}
-          >
-            Skills
-          </li>
-          <li
-            style={navItemStyles}
-            onClick={() => scrollToSection(contactRef)}
-          >
-            Contact
-          </li>
-        </ul>
-      </nav>
+      <Navbar scrollToSection={scrollToSection} />
 
       {/* Main Content */}
-      <div style={mainContentStyles}>
+      <div className="App__main-page-content">
         {/* Home Section */}
-        <section ref={homeRef} id="home" style={sectionStyles}>
+        <section ref={homeRef} id="home" className="section">
           <Home />
         </section>
 
         {/* About Section */}
-        <section ref={aboutRef} id="about" style={sectionStyles}>
+        <section ref={aboutRef} id="about" className="section">
           <About />
         </section>
 
         {/* Resume Section */}
-        <section ref={resumeRef} id="resume" style={sectionStyles}>
+        <section ref={resumeRef} id="resume" className="section">
           <Resume />
         </section>
 
         {/* Skills Section */}
-        <section ref={skillsRef} id="skills" style={sectionStyles}>
+        <section ref={skillsRef} id="skills" className="section">
           <Skills />
         </section>
 
         {/* Contact Section */}
-        <section ref={contactRef} id="contact" style={sectionStyles}>
+        <section ref={contactRef} id="contact" className="section">
           <Contact />
         </section>
       </div>
