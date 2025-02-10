@@ -1,33 +1,33 @@
 export const data = {
     experience: [
       {
-        title: "Consultant",
-        subTitle: "Miami, FL",
+        title: "web developer",
+        subTitle: "front end and back end developer",
         description:
           " User Experience, Visual Design",
       },
       {
-        title: "Senior Consultant",
+        title: "entry-level Consultant",
         subTitle: "ethiopia, bahirdar",
         description:
           "Web development, Databases, Backend developement",
       },
       {
-        title: "Project Manager",
-        subTitle: "bongs, ethiopia",
+        title: "self thuohing web developer",
+        subTitle: "bonga universty, ethiopia",
         description:
           "Creative Direction Project Management, Team Leading",
       },
     ],
     education: [
       {
-        title: "Secondary",
+        title: "Secondary school",
         subTitle: "Tana haik ",
         description:
           "10th Grade",
       },
       {
-        title: "Higher Secondary",
+        title: "Higher Secondary school",
         subTitle: "Tanahaik secondey schhol",
         description:
           "12th Grade in Science",
