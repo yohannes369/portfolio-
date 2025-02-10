@@ -5,3 +5,139 @@
         height: calc(100% - 80px);
     }
 }
+:root {
+    --yellow-theme-nav-background-color: #1d1d1d;
+    --yellow-theme-main-color: #ffdd40;
+    --yellow-theme-sub-text-color: #ffffff;
+    --yellow-theme-background-color: #1d1d1d;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--yellow-theme-background-color);
+    color: var(--yellow-theme-sub-text-color);
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .App__main-page-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .navbar {
+    background-color: var(--yellow-theme-nav-background-color);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  
+    &__container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: inherit;
+      padding: 0px 20px;
+      flex: 1;
+  
+      &__logo {
+        color: var(--yellow-theme-main-color);
+        cursor: pointer;
+  
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 25px;
+        }
+      }
+  
+      &__menu {
+        display: flex;
+        list-style: none;
+        text-align: center;
+  
+        &__item {
+          line-height: 40px;
+          margin-right: 1.5rem;
+          font-size: 1.6rem;
+  
+          &::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: transparent;
+            transition: all 0.5s ease;
+          }
+  
+          &:hover::after {
+            width: 100%;
+            background: var(--yellow-theme-main-color);
+          }
+  
+          &__links {
+            color: var(--yellow-theme-main-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  
+  .nav-icon {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .navbar__container__menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      position: absolute;
+      top: 80px;
+      left: -110%;
+      opacity: 1;
+      transition: all 0.5s ease;
+  
+      &.active {
+        background: #181818;
+        left: 0px;
+        opacity: 1;
+      }
+  
+      &__item {
+        border-bottom: 1px solid #282828;
+        margin: 0px;
+        padding: 20px 0px;
+      }
+    }
+  
+    .nav-icon {
+      display: block;
+      cursor: pointer;
+      color: var(--yellow-theme-main-color);
+      padding-right: 20px;
+    }
+  }
