@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="navbar__container">
           <Link to={"/"} className="navbar__container__logo">
             <img src={Jo} style={{ width: 80, height: 80, borderRadius: 40 }} />
-          {/* <Image source={Jo} style={{ width: 50, height: 50, borderRadius: 25 }} /> */}
+       
 
           </Link>
         </div>
