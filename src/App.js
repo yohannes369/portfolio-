@@ -33,7 +33,9 @@ function App() {
   return (
     <div className="App">
       {/* Particles background for home section */}
-      <Particles id="particles" options={particles} init={handleInit} />
+      <Particles id="particles" 
+      options={particles} 
+      init={handleInit} />
 
       {/* Navbar with scroll-based navigation */}
       <Navbar scrollToSection={scrollToSection} />
