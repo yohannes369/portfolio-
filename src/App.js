@@ -9,7 +9,8 @@ import Contact from "./containers/contact";
 import Navbar from "./components/navBar";
 import particles from "./utils.js/particles";
 import "./App.scss"; // Import the SCSS file for styling
-
+import Footer from "./footer"
+import { footer } from "framer-motion/client";
 function App() {
   // Initialize particles
   const handleInit = async (main) => {
@@ -22,6 +23,7 @@ function App() {
   const resumeRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+  const footerRef =useRef(null)
 
   // Smooth scroll to the target section
   const scrollToSection = (ref) => {
@@ -65,6 +67,10 @@ function App() {
         {/* Contact Section */}
         <section ref={contactRef} id="contact" className="section">
           <Contact />
+        </section>
+            {/* About Section */}
+            <section ref={footerRef} id="footer" className="section">
+          <Footer />
         </section>
       </div>
     </div>
