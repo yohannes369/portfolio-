@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Animate } from "react-simple-animate";
 import "./styles.scss";
+import Particles from "react-tsparticles";
+import particles from "../../utils.js/particles";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -11,10 +13,18 @@ const Home = () => {
   };
 
   return (
+
+
+
+    
     <section id="home" className="home">
+    
       <div className="home__text-wrapper">
+      
         <h1>
+          
           Hello, I'm yohannes
+          
           <br />
        Full stack web developer 
         </h1>
@@ -33,8 +43,12 @@ const Home = () => {
         <div className="home__contact-me">
           <button onClick={handleNavigateToContactMePage}>Hire Me</button>
         </div>
+     
       </Animate>
+      
     </section>
+  
+   
   );
 };
 export default Home;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Particles from "react-tsparticles";
+
 import { loadFull } from "tsparticles";
 import Home from "./containers/home";
 import About from "./containers/about";
@@ -7,7 +7,7 @@ import Resume from "./containers/resume";
 import Skills from "./containers/skills";
 import Contact from "./containers/contact";
 import Navbar from "./components/navBar";
-import particles from "./utils.js/particles";
+
 import "./App.scss"; // Import the SCSS file for styling
 import Footer from "./footer"
 import { footer } from "framer-motion/client";
@@ -35,9 +35,7 @@ function App() {
   return (
     <div className="App">
       {/* Particles background for home section */}
-      <Particles id="particles" 
-      options={particles} 
-      init={handleInit} />
+
 
       {/* Navbar with scroll-based navigation */}
       <Navbar scrollToSection={scrollToSection} />
