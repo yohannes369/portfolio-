@@ -11,6 +11,8 @@ import Navbar from "./components/navBar";
 import "./App.scss"; // Import the SCSS file for styling
 import Footer from "./footer"
 import { footer } from "framer-motion/client";
+// import Particles from "react-tsparticles";
+// import particles from "../../utils.js/particles";
 function App() {
   // Initialize particles
   const handleInit = async (main) => {
@@ -35,7 +37,9 @@ function App() {
   return (
     <div className="App">
       {/* Particles background for home section */}
-
+      {/* <Particles id="particles" 
+      options={particles} 
+      init={handleInit} /> */}
 
       {/* Navbar with scroll-based navigation */}
       <Navbar scrollToSection={scrollToSection} />

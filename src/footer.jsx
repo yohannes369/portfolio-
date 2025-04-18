@@ -79,7 +79,7 @@ const Footer = () => {
           </a>
           {/* Email */}
           <a
-            href="mailto:your-email@example.com"
+            href="yohannesyeneakal6@example.com"
             style={{ color: "#fff", textDecoration: "none", transition: "color 0.3s ease" }}
           >
             <FaEnvelope
@@ -93,7 +93,7 @@ const Footer = () => {
           </a>
           {/* Phone */}
           <a
-            href="tel:+1234567890"
+            href="tel:+251987294511"
             style={{ color: "#fff", textDecoration: "none", transition: "color 0.3s ease" }}
           >
             <FaPhone
@@ -115,13 +115,13 @@ const Footer = () => {
               href="mailto:your-email@example.com"
               style={{ color: "#fff", textDecoration: "none" }}
             >
-              your-email@example.com
+        yohannesyeneakal6@example.com
             </a>
           </p>
           <p style={{ fontSize: "1rem" }}>
             Phone:{" "}
             <a href="tel:+1234567890" style={{ color: "#fff", textDecoration: "none" }}>
-              +123 456 7890
+              +251987294511
             </a>
           </p>
         </div>
