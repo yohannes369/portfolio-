@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import { loadFull } from "tsparticles";
 import Home from "./containers/home";
 import About from "./containers/about";
@@ -7,75 +6,107 @@ import Resume from "./containers/resume";
 import Skills from "./containers/skills";
 import Contact from "./containers/contact";
 import Navbar from "./components/navBar";
+import Footer from "./footer";
+import "./App.scss";
 
-import "./App.scss"; // Import the SCSS file for styling
-import Footer from "./footer"
-import { footer } from "framer-motion/client";
-// import Particles from "react-tsparticles";
-// import particles from "../../utils.js/particles";
 function App() {
-  // Initialize particles
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingState, setLoadingState] = useState({
+    progress: 0,
+    message: "Initializing..."
+  });
+
+  const sectionRefs = {
+    home: useRef(null),
+    about: useRef(null),
+    resume: useRef(null),
+    skills: useRef(null),
+    contact: useRef(null),
+    footer: useRef(null)
+  };
+
+  useEffect(() => {
+    const loadingStages = [
+      { progress: 10, message: "Loading assets..." },
+      { progress: 30, message: "Processing data..." },
+      { progress: 60, message: "Rendering components..." },
+      { progress: 85, message: "Finalizing..." },
+      { progress: 100, message: "Ready!" }
+    ];
+
+    let currentStage = 0;
+    const interval = setInterval(() => {
+      if (currentStage < loadingStages.length) {
+        setLoadingState(loadingStages[currentStage]);
+        currentStage++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 800);
+      }
+    }, 800);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleInit = async (main) => {
     await loadFull(main);
   };
 
-  // References for each section
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const resumeRef = useRef(null);
-  const skillsRef = useRef(null);
-  const contactRef = useRef(null);
-  const footerRef =useRef(null)
-
-  // Smooth scroll to the target section
   const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="App">
-      {/* Particles background for home section */}
-      {/* <Particles id="particles" 
-      options={particles} 
-      init={handleInit} /> */}
+    <>
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="loading-container">
+            <div className="loading-animation">
+              <div className="loading-spinner"></div>
+              <div className="loading-progress-bar">
+                <div 
+                  className="loading-progress-fill" 
+                  style={{ width: `${loadingState.progress}%` }}
+                ></div>
+              </div>
+              <div className="loading-details">
+                <div className="loading-percentage">{loadingState.progress}%</div>
+                <div className="loading-message">{loadingState.message}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
-      {/* Navbar with scroll-based navigation */}
-      <Navbar scrollToSection={scrollToSection} />
+      <div className={`App ${isLoading ? 'app-loading' : ''}`}>
+        {/* <Particles id="particles" options={particles} init={handleInit} /> */}
+        
+        <Navbar scrollToSection={scrollToSection} sectionRefs={sectionRefs} />
 
-      {/* Main Content */}
-      <div className="App__main-page-content">
-        {/* Home Section */}
-        <section ref={homeRef} id="home" className="section">
-          <Home />
-        </section>
-
-        {/* About Section */}
-        <section ref={aboutRef} id="about" className="section">
-          <About />
-        </section>
-
-        {/* Resume Section */}
-        <section ref={resumeRef} id="resume" className="section">
-          <Resume />
-        </section>
-
-        {/* Skills Section */}
-        <section ref={skillsRef} id="skills" className="section">
-          <Skills />
-        </section>
-
-        {/* Contact Section */}
-        <section ref={contactRef} id="contact" className="section">
-          <Contact />
-        </section>
-            {/* About Section */}
-            <section ref={footerRef} id="footer" className="section">
-          <Footer />
-        </section>
+        <div className="App__main-page-content">
+          <section ref={sectionRefs.home} id="home" className="section">
+            <Home />
+          </section>
+          <section ref={sectionRefs.about} id="about" className="section">
+            <About />
+          </section>
+          <section ref={sectionRefs.resume} id="resume" className="section">
+            <Resume />
+          </section>
+          <section ref={sectionRefs.skills} id="skills" className="section">
+            <Skills />
+          </section>
+          <section ref={sectionRefs.contact} id="contact" className="section">
+            <Contact />
+          </section>
+          <section ref={sectionRefs.footer} id="footer" className="section">
+            <Footer />
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
