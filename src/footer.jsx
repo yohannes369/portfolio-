@@ -31,7 +31,7 @@ const Footer = () => {
         >
           {/* GitHub */}
           <a
-            href="https://github.com/your-github-username"
+            href="https://github.com/yohannes369"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#fff", textDecoration: "none", transition: "color 0.3s ease" }}
@@ -47,7 +47,7 @@ const Footer = () => {
           </a>
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com/in/your-linkedin-username"
+            href="https://linkedin.com/in/yohannes-yeneakal-a3b94034b"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#fff", textDecoration: "none", transition: "color 0.3s ease" }}
@@ -61,22 +61,7 @@ const Footer = () => {
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             />
           </a>
-          {/* Facebook */}
-          <a
-            href="https://facebook.com/your-facebook-username"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "none", transition: "color 0.3s ease" }}
-          >
-            <FaFacebook
-              style={{
-                fontSize: "2rem",
-                transition: "transform 0.3s ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-            />
-          </a>
+       
           {/* Email */}
           <a
             href="yohannesyeneakal6@example.com"
@@ -127,7 +112,7 @@ const Footer = () => {
         </div>
         {/* Copyright Notice */}
         <p style={{ fontSize: "1rem", marginTop: "20px", opacity: "0.8" }}>
-          &copy; {new Date().getFullYear()} YoHANNES YENEAKAL All rights reserved.
+          &copy; {new Date().getFullYear()}  YENEAKAL All rights reserved.
         </p>
       </div>
     </footer>
