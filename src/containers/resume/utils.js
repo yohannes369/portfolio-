@@ -8,27 +8,27 @@ export const data = {
       },
       {
         title: "entry-level Consultant",
-        subTitle: "ethiopia, bahirdar",
+        subTitle: "ethiopia, Bonga ",
         description:
           "Web development, Databases, Backend developement",
       },
       {
-        title: "self thuohing web developer",
-        subTitle: "bonga universty, ethiopia",
+        title: "self taught web developer",
+        subTitle: "bonga , ethiopia",
         description:
           "Creative Direction Project Management, Team Leading",
       },
     ],
     education: [
       {
-        title: "Secondary school",
+        title: "secondary school",
         subTitle: "Tana haik ",
         description:
           "10th Grade",
       },
       {
-        title: "Higher Secondary school",
-        subTitle: "Tanahaik secondey schhol",
+        title: "Higher secondary school",
+        subTitle: "Tanahaik secondary school",
         description:
           "12th Grade in Science",
       },

@@ -112,7 +112,7 @@ const Footer = () => {
         </div>
         {/* Copyright Notice */}
         <p style={{ fontSize: "1rem", marginTop: "20px", opacity: "0.8" }}>
-          &copy; {new Date().getFullYear()}  YENEAKAL All rights reserved.
+          &copy; {new Date().getFullYear()}  yohannes yeneakal  All rights reserved.
         </p>
       </div>
     </footer>
